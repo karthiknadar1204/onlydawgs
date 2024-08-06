@@ -5,7 +5,7 @@ import RotatedText from "@/components/decorators/RotatedText";
 import MasonryGrid from "./MasonryGrid";
 import Features from "./Features";
 import Testimonials from "./Testimonials";
-// import Pricing from "@/components/Pricing";
+import Pricing from "@/components/Pricing";
 import Team from "./Team";
 import TodaysHighlight from "./TodaysHighlight";
 
@@ -38,7 +38,7 @@ const AuthScreen = () => {
 
 						<Features />
 						<Testimonials />
-						{/* <Pricing /> */}
+						<Pricing />
 						<Team />
 					</div>
 				</div>
