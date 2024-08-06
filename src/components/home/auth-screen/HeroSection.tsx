@@ -13,10 +13,10 @@ const HeroSection = () => {
 				/>
 				<div className='flex flex-col gap-2 px-4 xl:ml-40 text-center md:text-start font-semibold'>
 					<Image
-						src={"/onlyhorse.png"}
+						src={"/only_dawgs.jpeg"}
 						alt='OnlyHorse Logo'
-						width={769}
-						height={182}
+						width={369}
+						height={82}
 						className='mt-20 w-[420px] z-0 pointer-events-none select-none'
 					/>
 
@@ -34,7 +34,7 @@ const HeroSection = () => {
 
 			<div className='flex-1 relative overflow-hidden justify-center items-center hidden md:flex'>
 				<Image
-					src={"/horse-1.png"}
+					src={"/hero_dog_image.jpeg"}
 					alt='Horse'
 					fill
 					className='object-cover opacity-90 pointer-events-none select-none h-full'

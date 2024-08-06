@@ -7,6 +7,7 @@ import Features from "./Features";
 import Testimonials from "./Testimonials";
 // import Pricing from "@/components/Pricing";
 import Team from "./Team";
+import TodaysHighlight from "./TodaysHighlight";
 
 const AuthScreen = () => {
 	return (
@@ -25,7 +26,7 @@ const AuthScreen = () => {
 
 					{/* Featured Post */}
 					<div className='flex flex-col gap-10 mt-10'>
-						{/* <TodaysHighlight /> */}
+						<TodaysHighlight />
 
 						<div className='mt-24'>
 							<p className='text-2xl md:text-5xl text-center tracking-tighter font-bold'>

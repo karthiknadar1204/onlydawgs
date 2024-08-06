@@ -1,14 +1,10 @@
-import AuthScreen from '@/components/home/auth-screen/AuthScreen';
-import HomeScreen from '@/components/home/home-screen/HomeScreen';
-import React from 'react'
+import AuthScreen from "@/components/home/auth-screen/AuthScreen";
+import HomeScreen from "@/components/home/home-screen/HomeScreen";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-const page = () => {
-  const user=false;
-  return (
-    <main>
-      {user ? <HomeScreen/> : <AuthScreen/>}
-    </main>
-  )
+export default async function Home() {
+	const { getUser } = getKindeServerSession();
+	const user = await getUser();
+	console.log(user);
+	return <main>{user ? <HomeScreen /> : <AuthScreen />}</main>;
 }
-
-export default page
