@@ -14,6 +14,7 @@ import { ModeToggle } from "./ModeToggle";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import LogoutButton from "./LogoutButton";
 import { getUserProfileAction } from "@/app/update-profile/actions";
+import { user } from '@/dummy_data';
 
 const SIDEBAR_LINKS = [
 	{
@@ -44,7 +45,7 @@ const Sidebar = async () => {
 			<Link href='/update-profile' className='max-w-fit'>
 				<Avatar className='mt-4 cursor-pointer'>
 					<AvatarImage 
-          // src={userProfile?.image || "/user-placeholder.png"} 
+          src={ user?.image || "/user-placeholder.png"} 
           alt="image hai bc"
           className='object-cover' />
 					<AvatarFallback>CN</AvatarFallback>
