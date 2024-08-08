@@ -1,8 +1,16 @@
 import React from 'react'
+import SuggestedProduct from './SuggestedProduct'
 
 const SuggestedProducts = () => {
   return (
-    <div>SuggestedProducts</div>
+    <div>
+      <SuggestedProduct/>
+      <SuggestedProduct/>
+      <SuggestedProduct/>
+      <SuggestedProduct/>
+      <SuggestedProduct/>
+      <SuggestedProduct/>
+    </div>
   )
 }
 
