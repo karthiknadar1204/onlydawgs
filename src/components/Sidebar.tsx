@@ -35,7 +35,7 @@ const Sidebar = async () => {
 
 	// const userProfile = await getUserProfileAction();
 
-	const isAdmin = false;
+	const isAdmin = true;
 
 	return (
 		<div

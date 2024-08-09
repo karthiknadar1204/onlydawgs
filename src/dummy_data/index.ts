@@ -1,7 +1,7 @@
 export const admin = {
 	id: 1,
-	name: "Admin",
-	email: "admin@gmail.com",
+	name: "Karthik",
+	email: "karthiknadar1204@gmail.com",
 	image: "https://avatar.iran.liara.run/public/boy?username=bob",
 };
 
