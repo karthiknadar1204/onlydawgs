@@ -1,8 +1,13 @@
 import React from 'react'
+import AddNewProductForm from './AddNewProductForm'
+import ExistingProducts from './ExistingProducts'
 
 const StoreTab = () => {
   return (
-    <div>StoreTab</div>
+    <div>
+      <AddNewProductForm/>
+      <ExistingProducts/>
+    </div>
   )
 }
 

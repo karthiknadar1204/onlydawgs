@@ -8,12 +8,9 @@ import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
 
 const ProductCard = ({ product,adminView = false }: { product: any; adminView?: boolean }) => {
-    // const adminView = true;
     const [isPending, setIsPending] = useState(false); 
     const toggleArchive = async () => {
         setIsPending(true);
-        // Implement archive toggle logic here
-        // After the logic is done, set isPending back to false
         setIsPending(false);
       };
     
