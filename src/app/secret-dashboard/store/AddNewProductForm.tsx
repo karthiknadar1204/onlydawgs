@@ -11,18 +11,38 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CldUploadWidget, CloudinaryUploadWidgetInfo } from "next-cloudinary";
 import Image from "next/image";
 import { useState } from "react";
-// import { addNewProductToStoreAction } from "../actions";
+import { addNewProductToStoreAction } from "../actions";
 import { useToast } from "@/components/ui/use-toast";
 
 const AddNewProductForm = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [isPending, setIsPending] = useState<boolean>(false);
+
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+
+  const { mutate: createProduct, isPending } = useMutation({
+    mutationKey: ["createProduct"],
+    mutationFn: async () =>
+      await addNewProductToStoreAction({ name, image: imageUrl, price }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["getAllProducts"] });
+      toast({
+        title: "Product Added",
+        description: "The product has been added successfully",
+      });
+
+      setName("");
+      setPrice("");
+      setImageUrl("");
+    },
+  });
+
   return (
     <>
       <p className="text-3xl tracking-tighter my-5 font-medium text-center">
@@ -32,7 +52,7 @@ const AddNewProductForm = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          // createProduct();
+          createProduct();
         }}
       >
         <Card className="w-full max-w-md mx-auto">
@@ -49,7 +69,7 @@ const AddNewProductForm = () => {
               <Input
                 id="name"
                 type="text"
-                placeholder="OnlyDawgs Special"
+                placeholder="OnlyHorse Special"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -112,5 +132,4 @@ const AddNewProductForm = () => {
     </>
   );
 };
-
 export default AddNewProductForm;
