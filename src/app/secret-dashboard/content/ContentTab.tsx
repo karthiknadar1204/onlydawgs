@@ -14,7 +14,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-// import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { TriangleAlert } from "lucide-react";
 import {
   CldUploadWidget,
@@ -23,16 +23,39 @@ import {
 } from "next-cloudinary";
 import Image from "next/image";
 import { useState } from "react";
-// import { createPostAction } from "../actions";
 import { useToast } from "@/components/ui/use-toast";
+import { createPostAction } from "../actions";
 
 const ContentTab = () => {
+  const [text, setText] = useState("");
+  const [mediaType, setMediaType] = useState<"video" | "image">("video");
+  const [isPublic, setIsPublic] = useState<boolean>(false);
+  const [mediaUrl, setMediaUrl] = useState<string>("");
 
-    const [text, setText] = useState("");
-    const [mediaType, setMediaType] = useState<"video" | "image">("video");
-    const [isPublic, setIsPublic] = useState<boolean>(false);
-    const [mediaUrl, setMediaUrl] = useState<string>("");
-    const [isPending, setIsPending] = useState<boolean>(false);
+  const { toast } = useToast();
+
+  const { mutate: createPost, isPending } = useMutation({
+    mutationKey: ["createPost"],
+    mutationFn: async () =>
+      createPostAction({ text, isPublic, mediaUrl, mediaType }),
+    onSuccess: () => {
+      toast({
+        title: "Post Created",
+        description: "Your post has been successfully created",
+      });
+      setText("");
+      setMediaType("video");
+      setIsPublic(false);
+      setMediaUrl("");
+    },
+    onError: (error) => {
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
 
   return (
     <>
@@ -42,7 +65,7 @@ const ContentTab = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-        //   createPost();
+            createPost();
         }}
       >
         <Card className="w-full max-w-md mx-auto">
