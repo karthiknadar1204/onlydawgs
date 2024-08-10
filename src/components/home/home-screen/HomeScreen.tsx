@@ -1,18 +1,21 @@
-import BaseLayout from '@/components/BaseLayout'
-import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components'
-import React from 'react'
-import UserProfile from './UserProfile'
-import Posts from './Posts'
+import BaseLayout from "@/components/BaseLayout";
+import UserProfile from "./UserProfile";
+import Posts from "./Posts";
+import prisma from "@/db/prisma";
+import { getUserProfileAction } from "@/app/update-profile/actions";
+import { notFound } from "next/navigation";
 
-const HomeScreen = () => {
-  return (
-    <BaseLayout >
-      <UserProfile/>
-      <Posts 
-      // admin={admin!} isSubscribed={user?.isSubscribed} 
-      />
-    </BaseLayout>
-  )
-}
+const HomeScreen = async () => {
+	const admin = await prisma.user.findUnique({ where: { email: process.env.ADMIN_EMAIL } });
+	const user = await getUserProfileAction();
 
-export default HomeScreen
+	if (!user) return notFound();
+
+	return (
+		<BaseLayout>
+			<UserProfile />
+			<Posts admin={admin!} isSubscribed={user?.isSubscribed} />
+		</BaseLayout>
+	);
+};
+export default HomeScreen;
