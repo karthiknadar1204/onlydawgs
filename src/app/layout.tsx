@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import Footer from "@/components/Footer";
+import TanStackProvider from "@/providers/TanStackProvider";
 import "next-cloudinary/dist/cld-video-player.css"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +24,9 @@ export default function RootLayout({
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
         <div className='h-screen flex flex-col'>
 						<div className='flex-1'>
+              <TanStackProvider>
                 {children}
+              </TanStackProvider>
 						</div>
 						<Footer />
 					</div>
