@@ -7,10 +7,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getPostsAction } from "./actions";
 
 const Posts = ({
-  isSubscribed,
+
   admin,
 }: {
-  isSubscribed: boolean;
   admin: User;
 }) => {
   const { data: posts, isLoading } = useQuery({
@@ -26,7 +25,6 @@ const Posts = ({
             key={post.id}
             post={post}
             admin={admin}
-            isSubscribed={isSubscribed}
           />
         ))}
 

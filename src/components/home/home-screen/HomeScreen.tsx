@@ -16,7 +16,7 @@ const HomeScreen = async () => {
   return (
     <BaseLayout>
       <UserProfile />
-      <Posts admin={admin!} isSubscribed={user?.isSubscribed} />
+      <Posts admin={admin!} />
     </BaseLayout>
   );
 };

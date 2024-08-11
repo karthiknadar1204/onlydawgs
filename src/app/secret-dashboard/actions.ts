@@ -13,10 +13,10 @@ type PostArgs = {
 
 
 export async function createPostAction({ isPublic, mediaUrl, mediaType, text }: PostArgs) {
-	const admin = await checkIfAdmin();
-
-	if (!admin) {
-		throw new Error("Unauthorized");
+	const { getUser } = getKindeServerSession();
+	const user = await getUser();
+	if (!user || !user.id) {
+		throw new Error("Unauthorized: No user logged in");
 	}
 
 	const newPost = await prisma.post.create({
@@ -25,7 +25,7 @@ export async function createPostAction({ isPublic, mediaUrl, mediaType, text }: 
 			mediaUrl,
 			mediaType,
 			isPublic,
-			userId: admin.id,
+			userId: user.id,
 		},
 	});
 

@@ -46,7 +46,6 @@ export async function likePostAction(postId: string) {
 	}
 
 	const userProfile = await prisma.user.findUnique({ where: { id: user.id } });
-	if (!userProfile?.isSubscribed) return;
 
 	const post = await prisma.post.findUnique({
 		where: { id: postId },
@@ -83,7 +82,6 @@ export async function commentOnPostAction(postId: string, text: string) {
 	if (!user) throw new Error("Unauthorized");
 
 	const userProfile = await prisma.user.findUnique({ where: { id: user.id } });
-	if (!userProfile?.isSubscribed) return;
 
 	const comment = await prisma.comment.create({
 		data: {

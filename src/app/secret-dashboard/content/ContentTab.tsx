@@ -111,7 +111,7 @@ const ContentTab = () => {
                 setMediaUrl(
                   (result.info as CloudinaryUploadWidgetInfo).secure_url
                 );
-                widget.close();
+                widget.close(); 
               }}
             >
               {({ open }) => {

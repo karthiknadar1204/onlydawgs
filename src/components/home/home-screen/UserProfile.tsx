@@ -4,15 +4,18 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import prisma from "@/db/prisma";
 import { getUserProfileAction } from "@/app/update-profile/actions";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const UserProfile = async () => {
   const admin = await prisma.user.findUnique({
     where: {
       email: process.env.ADMIN_EMAIL!,
     },
-  });
+  }); 
 
   const currentUser = await getUserProfileAction();
+  const { getUser } = getKindeServerSession();
+	const user = await getUser();
 
   return (
     <div className="flex flex-col">
@@ -22,7 +25,7 @@ const UserProfile = async () => {
         <div className="flex flex-col md:flex-row gap-4 justify-between">
           <Avatar className="w-20 h-20 border-2 -mt-10">
             <AvatarImage
-              src={admin?.image || "/user-placeholder.png"}
+              src={user?.image || "/user-placeholder.png"}
               className="object-cover"
             />
             <AvatarFallback>CN</AvatarFallback>
@@ -52,9 +55,11 @@ const UserProfile = async () => {
         <div className="flex flex-col mt-4">
           <p className="text-lg font-semibold">{admin?.name}</p>
           <p className="text-sm mt-2 md:text-md">
-            Discover daily tips and tricks for horse health and care, along with
-            insights into my personal routine with my horses. Subscribe now to
-            gain access to exclusive content and become part of the community.
+            This is just a fun website i built on top of onlyfans, please feel free to
+            explore and post your content about dogs and dog related stuff, as a dog owner
+            myself, this is just  a way to express my love for the canine species.I have the
+            admin access, the site is still getting updated, will soon add a payment interface
+            and a subscription model to understand the working of webhooks and will also strive to give a more personalised expereicne to all the visitors.
           </p>
         </div>
       </div>

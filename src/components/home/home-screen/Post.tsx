@@ -47,11 +47,9 @@ type PostWithComments = Prisma.PostGetPayload<{
 
 const Post = ({
   post,
-  isSubscribed,
   admin,
 }: {
   post: PostWithComments;
-  isSubscribed: boolean;
   admin: User;
 }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -160,7 +158,7 @@ const Post = ({
 
       <p className="text-sm md:text-md">{post.text}</p>
 
-      {(post.isPublic || isSubscribed) &&
+      {(post.isPublic) &&
         post.mediaUrl &&
         post.mediaType === "image" && (
           <div className="relative w-full pb-[56.25%] rounded-lg overflow-hidden">
@@ -173,7 +171,7 @@ const Post = ({
           </div>
         )}
 
-      {(post.isPublic || isSubscribed) &&
+      {(post.isPublic) &&
         post.mediaUrl &&
         post.mediaType === "video" && (
           <div className="w-full mx-auto">
@@ -186,7 +184,7 @@ const Post = ({
           </div>
         )}
 
-      {!isSubscribed && !post.isPublic && (
+      { !post.isPublic && (
         <div
           className="w-full bg-slate-800 relative h-96 rounded-md bg-of flex flex-col justify-center
           items-center px-5 overflow-hidden
@@ -225,7 +223,6 @@ const Post = ({
               "fill-red-500": isLiked,
             })}
             onClick={() => {
-              if (!isSubscribed) return;
               likePost();
             }}
           />
@@ -239,7 +236,7 @@ const Post = ({
             <DialogTrigger>
               <MessageCircle className="w-5 h-5 cursor-pointer" />
             </DialogTrigger>
-            {isSubscribed && (
+
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
                   <DialogTitle>Comments</DialogTitle>
@@ -274,7 +271,6 @@ const Post = ({
                   </DialogFooter>
                 </form>
               </DialogContent>
-            )}
           </Dialog>
           <div className="flex gap-1 items-center">
             <span className="text-xs text-zinc-400 tracking-tighter">
