@@ -6,25 +6,25 @@ const reviews = [
 	{
 		name: "Jack",
 		username: "@jack",
-		body: "The horse care tips are incredibly helpful. Love this site!",
+		body: "The dog care tips are incredibly helpful. Love this site!",
 		img: "https://avatar.vercel.sh/jack",
 	},
 	{
 		name: "Jill",
 		username: "@jill",
-		body: "Fantastic insights on horse training. Highly recommend!",
+		body: "Fantastic insights on dog training. Highly recommend!",
 		img: "https://avatar.vercel.sh/jill",
 	},
 	{
 		name: "John",
 		username: "@john",
-		body: "Great community for horse lovers. Very informative!",
+		body: "Great community for dog lovers. Very informative!",
 		img: "https://avatar.vercel.sh/john",
 	},
 	{
 		name: "Jane",
 		username: "@jane",
-		body: "Wonderful content about daily farm life. Amazing!",
+		body: "Wonderful content about daily dog life. Amazing!",
 		img: "https://avatar.vercel.sh/jane",
 	},
 	{
@@ -36,7 +36,7 @@ const reviews = [
 	{
 		name: "James",
 		username: "@james",
-		body: "Horse health tips are spot on. Very useful website!",
+		body: "Dog health tips are spot on. Very useful website!",
 		img: "https://avatar.vercel.sh/james",
 	},
 ];

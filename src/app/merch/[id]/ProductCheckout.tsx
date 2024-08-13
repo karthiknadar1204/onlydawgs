@@ -3,7 +3,13 @@
 import ZoomedImage from "@/components/ZoomedImage";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import { centsToDollars } from "@/lib/utils";
 import { useState } from "react";
@@ -12,14 +18,12 @@ import { Product } from "@prisma/client";
 
 const ProductCheckout = ({ product }: { product: Product }) => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const [isPending, setIsPending] = useState(false); // Define isPending state
+  const [isPending, setIsPending] = useState(false); 
   const { toast } = useToast();
   const router = useRouter();
 
   const handleBuyProduct = async () => {
     setIsPending(true);
-    // Implement your buy product logic here
-    // Simulate async operation
     setTimeout(() => {
       setIsPending(false);
       toast({
@@ -54,7 +58,7 @@ const ProductCheckout = ({ product }: { product: Product }) => {
 
         <Button
           className="mt-5 text-white px-5 py-2 rounded-md"
-          disabled={isPending || !selectedSize} // Disable if pending or size not selected
+          disabled={isPending || !selectedSize}
           size={"sm"}
           onClick={handleBuyProduct}
         >

@@ -15,8 +15,6 @@ const CoverImage = async ({ adminName }: { adminName: string }) => {
     },
   });
 
-  // const totalLikes = await prisma.like.count();
-
   const totalLikes = await prisma.post.aggregate({
     _sum: {
       likes: true,
@@ -36,11 +34,11 @@ const CoverImage = async ({ adminName }: { adminName: string }) => {
   return (
     <div className="h-44 overflow-hidden relative">
       <Image
-        src={"/featured/featured10.jpg"}
+        src={"/dog/3.jpeg"}
         className="h-full w-full object-cover select-none pointer-events-none"
         fill
         alt="Horse Cover Image"
-      />
+      /> 
       <div
         className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-800 to-transparent"
         aria-hidden="true"

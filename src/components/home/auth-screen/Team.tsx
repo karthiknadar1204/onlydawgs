@@ -12,26 +12,26 @@ const teamList: TeamProps[] = [
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=35",
 		name: "Sarah Thompson",
-		position: "Farm Manager",
-		description: "Sarah ensures the smooth operation of the farm and ensuring the well-being of all our horses. ",
+		position: "Kennel Manager",
+		description: "Sarah ensures the smooth operation of our kennels and the well-being of all our dogs.",
 	},
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=60",
 		name: "James Wilson",
-		position: "Head Trainer",
-		description: "James is our expert in horse training and riding instruction with over 15 years of experience",
+		position: "Head Dog Trainer",
+		description: "James is our expert in dog training and obedience instruction with over 15 years of experience.",
 	},
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=36",
 		name: "Dr. Emily Carter",
-		position: "Equine Veterinarian",
-		description: "Dr. Carter is our resident veterinarian, dedicated to maintaining the health of our horses.",
+		position: "Veterinarian",
+		description: "Dr. Carter is our resident veterinarian, dedicated to maintaining the health of our dogs.",
 	},
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=17",
 		name: "Michael Ramirez",
-		position: "Groom and Stable Hand",
-		description: "Michael is responsible for the daily care of our horses, including feeding and grooming. ",
+		position: "Groom and Caretaker",
+		description: "Michael is responsible for the daily care of our dogs, including feeding and grooming.",
 	},
 ];
 
@@ -39,11 +39,11 @@ const Team = () => {
 	return (
 		<section className='container py-24 sm:py-32'>
 			<h2 className='text-2xl sm:text-3xl md:text-5xl text-center tracking-tighter font-bold'>
-				Our <RotatedText>Dedicated</RotatedText> Crew
+				Our <RotatedText>Dedicated</RotatedText> Team
 			</h2>
 
 			<p className='mt-4 mb-10 text-md md:text-xl text-muted-foreground text-center'>
-				Meet the team that makes our farm a special place for horses and riders alike.
+				Meet the team that makes our kennel a special place for dogs and their owners alike.
 			</p>
 
 			<div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-10'>

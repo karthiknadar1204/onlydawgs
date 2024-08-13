@@ -73,21 +73,21 @@ export const products = [
 	{
 		id: "1",
 		name: "Product One",
-		price: 1999, // in cents $19.99, nice to have for stripe
+		price: 1999,
 		image: "/tshirts/1.png",
 		isArchived: false,
 	},
 	{
 		id: "2",
 		name: "Product Two",
-		price: 2999, // in cents $29.99
+		price: 2999,
 		image: "/tshirts/2.png",
 		isArchived: true,
 	},
 	{
 		id: "3",
 		name: "Product Three",
-		price: 3999, // in cents $39.99
+		price: 3999,
 		image: "/tshirts/3.png",
 		isArchived: false,
 	},

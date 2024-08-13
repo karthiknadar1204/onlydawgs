@@ -28,7 +28,7 @@ const MasonryGrid = () => {
 						onMouseMove={(e) => handleMouseMove(e, i)}
 					>
 						<Image
-							src={`/featured/featured${i + 1}.jpg`}
+							src={`/dawgs/${i + 1}.jpeg`}
 							className='cursor-pointer hover:scale-150 transition-transform duration-500 ease-in-out'
 							alt='Featured Horse'
 							style={{
@@ -44,15 +44,3 @@ const MasonryGrid = () => {
 	);
 };
 export default MasonryGrid;
-
-// 	The class "[&>div:not(:first-child)]:mt-8" applies a margin-top 32px to all direct child <div> elements except the first one.
-
-// Breakdown of the class:
-
-// & refers to the current selector, which in this case is the parent <div> containing the class.
-// > is the child combinator, which selects direct children of the parent.
-// div specifies that the rule applies to <div> elements.
-// :not(:first-child) is a pseudo-class selector that excludes the first child element.
-// :mt-8 is a Tailwind utility class that sets the margin-top to 8 (2rem).
-
-// So, this class ensures that all <div> elements except the first one have a margin-top of 2rem(32px).
