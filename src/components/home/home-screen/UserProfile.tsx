@@ -104,7 +104,7 @@ const UserProfile = async () => {
         <div className="flex flex-col md:flex-row gap-4 justify-between">
           <Avatar className="w-20 h-20 border-2 -mt-10">
             <AvatarImage
-              src={user?.image || "/user-placeholder.png"} // Fallback to placeholder
+              src={"/user-placeholder.png"} // Fallback to placeholder
               className="object-cover"
             />
             <AvatarFallback>CN</AvatarFallback>
