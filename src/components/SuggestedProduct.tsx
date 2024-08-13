@@ -5,6 +5,7 @@ import { centsToDollars, cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import ZoomedImage from "./ZoomedImage";
+import { Product } from '@prisma/client';
 
 const SuggestedProduct = ({ product }: { product: Product }) => {
   return (
