@@ -53,17 +53,17 @@ import { notFound } from "next/navigation";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   try {
-    // Fetch the current product by ID
+
     const currentProduct = await prisma.product.findUnique({
       where: {
         id: params.id,
       },
     });
 
-    // If the product is not found or is archived, return a 404
+
     if (!currentProduct || currentProduct.isArchived) return notFound();
 
-    // Fetch other non-archived products excluding the current product
+
     const products = await prisma.product.findMany({
       where: {
         isArchived: false,
